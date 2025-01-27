@@ -1,8 +1,15 @@
 import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
 
-x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-y = [3, 4, 2, 5, 6, 7, 8, 5, 6, 7]
+data = pd.read_csv('data.csv')
+
+x = data.iloc[:, 0]
+y = data.iloc[:, 1]
 
 plt.scatter(x, y)
+plt.xlabel('mileage')
+plt.ylabel('price')
+plt.legend()
 
 plt.show()

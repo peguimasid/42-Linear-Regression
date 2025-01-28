@@ -7,7 +7,7 @@ data = pd.read_csv('data.csv')
 x = data.iloc[:, 0]
 y = data.iloc[:, 1]
 
-plt.scatter(x, y)
+plt.scatter(x, y, label='Data points')
 plt.xlabel('mileage')
 plt.ylabel('price')
 plt.legend()

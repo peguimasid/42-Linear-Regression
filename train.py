@@ -11,13 +11,13 @@ y = data.iloc[:, 1]
 x = (x - x.min()) / (x.max() - x.min())
 y = (y - y.min()) / (y.max() - y.min())
 
-intercept = 0
-slope = 0
+intercept = 0  # 1
+slope = 0  # -1.2
 
 
-def compute_cost(x, y, theta0, theta1):
+def compute_cost(x, y, intercept, slope):
     m = len(y)
-    predictions = theta0 + theta1 * x
+    predictions = intercept + slope * x
     cost = (1 / (2 * m)) * sum((predictions - y) ** 2)
     return cost
 

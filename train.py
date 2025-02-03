@@ -9,4 +9,4 @@ y = data.iloc[:, 1]
 
 # Normalize the data
 x = (x - x.mean()) / x.std()
-y = (y - y.mean()) / x.std()
+y = (y - y.mean()) / y.std()

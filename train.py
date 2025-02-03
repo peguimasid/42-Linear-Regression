@@ -27,25 +27,18 @@ def compute_cost(x, y, intercept, slope):
     return cost
 
 
-print(compute_cost(x, y, intercept, slope))
-
-
 def gradient_descent(x, y, intercept, slope):
     m = len(y)
     for _ in range(iterations):
         predictions = intercept + slope * x
         d_intercept = (1 / m) * sum(predictions - y)
         d_slope = (1 / m) * sum((predictions - y) * x)
-
         intercept = intercept - learning_rate * d_intercept
         slope = slope - learning_rate * d_slope
     return intercept, slope
 
 
 intercept, slope = gradient_descent(x, y, intercept, slope)
-
-print(intercept, slope)
-print(compute_cost(x, y, intercept, slope))
 
 line_x = np.linspace(x.min(), x.max(), 100)
 line_y = intercept + slope * line_x

@@ -4,7 +4,7 @@ import numpy as np
 
 data = pd.read_csv("data.csv")
 
-x = data.iloc[:, 0].values
+x = data.iloc[:, 0]
 y = data.iloc[:, 1]
 
 # Normalize the data

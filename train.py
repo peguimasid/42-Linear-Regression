@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 
 data = pd.read_csv("data.csv")
+m = len(data)
 
 x = data.iloc[:, 0]
 y = data.iloc[:, 1]

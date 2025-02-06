@@ -49,7 +49,13 @@ def gradient_descent(x, y, intercept, slope):
 
 
 initial_cost = compute_cost(x, y, intercept, slope)
-intercept, slope, _ = gradient_descent(x, y, intercept, slope)
+intercept, slope, cost_history = gradient_descent(x, y, intercept, slope)
 final_cost = compute_cost(x, y, intercept, slope)
 
-print(initial_cost, final_cost)
+# print(initial_cost, final_cost)
+
+plt.plot(cost_history)
+plt.xlabel("Iterations")
+plt.ylabel("Cost")
+plt.title("Cost Function Convergence")
+plt.show()

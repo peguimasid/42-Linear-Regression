@@ -14,7 +14,7 @@ y = (y - y.mean()) / y.std()
 
 # Start params
 intercept = 2
-slope = 10
+slope = 0
 learning_rate = 0.01
 iterations = 1000
 

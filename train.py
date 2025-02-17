@@ -13,7 +13,7 @@ x = (x - x.mean()) / x.std()
 y = (y - y.mean()) / y.std()
 
 # Start params
-intercept = 2
+intercept = 20
 slope = 0
 learning_rate = 0.01
 iterations = 1000
@@ -37,12 +37,14 @@ def gradient_descent(x, y, intercept, slope):
         d_intercept = (1 / m) * sum(predictions - y)
         d_slope = (1 / m) * sum((predictions - y) * x)
 
-        if i % 20 == 0:
-            show_regression_line(x, y, intercept, slope)
-
         # Update parameters
         intercept -= learning_rate * d_intercept
         slope -= learning_rate * d_slope
+        print(f"{(learning_rate * sum(predictions - y) / m):.22f}")
+        print(f"{intercept}")
+
+        if i == 2:
+            break
 
         # Store the cost (optional, for monitoring)
         cost = compute_cost(x, y, intercept, slope)
@@ -70,6 +72,6 @@ def show_regression_line(x, y, intercept, slope):
 
 intercept, slope, cost_history = gradient_descent(x, y, intercept, slope)
 
-print(intercept, slope)
+# print(intercept, slope)
 
 # show_regression_line(x, y, intercept, slope)

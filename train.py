@@ -15,7 +15,7 @@ y = (y - y.mean()) / y.std()
 intercept = 20
 slope = 0
 learning_rate = 0.01
-iterations = 5000
+iterations = 1000
 
 
 def compute_cost(x, y, intercept, slope):

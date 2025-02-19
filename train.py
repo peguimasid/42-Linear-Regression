@@ -25,10 +25,16 @@ def compute_cost(x, y, intercept, slope):
     return cost
 
 
+def print_state(iteration, intercept, slope, cost):
+    print(
+        f"Iteration {iteration:03d}: Intercept = {intercept:.19f}, Slope = {slope:.19f}, Cost = {cost:5f}"
+    )
+
+
 def gradient_descent(x, y, intercept, slope):
     cost_history = []  # Store cost at each iteration
 
-    for _ in range(iterations):
+    for i in range(iterations):
         # Compute predictions
         predictions = intercept + slope * x
 
@@ -43,6 +49,9 @@ def gradient_descent(x, y, intercept, slope):
         # Store the cost (optional, for monitoring)
         cost = compute_cost(x, y, intercept, slope)
         cost_history.append(cost)
+
+        # Print the current state
+        print_state(i, intercept, slope, cost)
 
     return intercept, slope, cost_history
 

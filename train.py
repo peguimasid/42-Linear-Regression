@@ -75,4 +75,12 @@ def show_regression_line(x, y, intercept, slope):
 
 intercept, slope, cost_history = gradient_descent(x, y, intercept, slope)
 
+# Rescale x and y
+x = data.iloc[:, 0]
+y = data.iloc[:, 1]
+
+# Rescale intercept and slope
+slope = slope * y.std() / x.std()
+intercept = y.mean() - slope * x.mean()
+
 show_regression_line(x, y, intercept, slope)

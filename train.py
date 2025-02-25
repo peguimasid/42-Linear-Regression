@@ -3,7 +3,6 @@ import pandas as pd
 from utils import plot_cost_history, plot_regression_line, print_state, should_stop
 
 data = pd.read_csv("data.csv")
-m = len(data)
 
 x = data.iloc[:, 0]
 y = data.iloc[:, 1]
@@ -13,6 +12,7 @@ x = (x - x.mean()) / x.std()
 y = (y - y.mean()) / y.std()
 
 # Start params
+m = len(data)
 intercept = 0
 slope = 0
 learning_rate = 0.01

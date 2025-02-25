@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+from utils import plot_cost_history, plot_regression_line, print_state
 
 data = pd.read_csv("data.csv")
 m = len(data)
@@ -23,12 +24,6 @@ def compute_cost(x, y, intercept, slope):
     predictions = intercept + slope * x
     cost = (1 / (2 * m)) * sum((predictions - y) ** 2)
     return cost
-
-
-def print_state(iteration, intercept, slope, cost):
-    print(
-        f"Iteration {iteration:03d}: Intercept = {intercept:.19f}, Slope = {slope:.19f}, Cost = {cost:5f}"
-    )
 
 
 def gradient_descent(x, y, intercept, slope):
@@ -56,23 +51,6 @@ def gradient_descent(x, y, intercept, slope):
     return intercept, slope, cost_history
 
 
-def show_cost_history(cost_history):
-    plt.plot(cost_history)
-    plt.xlabel("Iterations")
-    plt.ylabel("Cost")
-    plt.title("Cost Function Convergence")
-    plt.show()
-
-
-def show_regression_line(x, y, intercept, slope):
-    plt.scatter(x, y)
-    plt.plot(x, intercept + slope * x, color="red")
-    plt.xlabel("x")
-    plt.ylabel("y")
-    plt.title(f"Linear Regression (intercept: {intercept:.2f}, slope: {slope:.2f})")
-    plt.show()
-
-
 intercept, slope, cost_history = gradient_descent(x, y, intercept, slope)
 
 # Rescale x and y
@@ -83,4 +61,4 @@ y = data.iloc[:, 1]
 slope = slope * y.std() / x.std()
 intercept = y.mean() - slope * x.mean()
 
-show_regression_line(x, y, intercept, slope)
+plot_regression_line(x, y, intercept, slope)

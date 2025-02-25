@@ -63,5 +63,5 @@ y = data.iloc[:, 1]
 slope = slope * y.std() / x.std()
 intercept = y.mean() - slope * x.mean()
 
-# plot_regression_line(x, y, intercept, slope)
+plot_regression_line(x, y, intercept, slope)
 plot_cost_history(cost_history)

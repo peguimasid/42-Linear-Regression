@@ -25,6 +25,9 @@ def plot_regression_line(x, y, intercept, slope):
 
 
 def should_stop(cost_history):
+    """
+    Check if the cost has converged
+    """
     if len(cost_history) < 2:
         return False
     return round(cost_history[-2], 7) == round(cost_history[-1], 7)

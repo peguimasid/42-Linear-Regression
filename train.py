@@ -20,7 +20,6 @@ iterations = 1000
 
 
 def compute_cost(x, y, intercept, slope):
-    m = len(y)
     predictions = intercept + slope * x
     cost = (1 / (2 * m)) * sum((predictions - y) ** 2)
     return cost

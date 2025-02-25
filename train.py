@@ -53,12 +53,13 @@ def gradient_descent(x, y, intercept, slope):
 
 intercept, slope, cost_history = gradient_descent(x, y, intercept, slope)
 
-# Rescale x and y
+# Revert x and y to original scale
 x = data.iloc[:, 0]
 y = data.iloc[:, 1]
 
-# Rescale intercept and slope
+# Adjust intercept and slope to original scale
 slope = slope * y.std() / x.std()
 intercept = y.mean() - slope * x.mean()
 
-plot_regression_line(x, y, intercept, slope)
+# plot_regression_line(x, y, intercept, slope)
+plot_cost_history(cost_history)

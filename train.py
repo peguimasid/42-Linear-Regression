@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-from utils import plot_cost_history, plot_regression_line, print_state
+from utils import plot_cost_history, plot_regression_line, print_state, should_stop
 
 data = pd.read_csv("data.csv")
 m = len(data)
@@ -45,6 +45,9 @@ def gradient_descent(x, y, intercept, slope):
         cost = compute_cost(x, y, intercept, slope)
         cost_history.append(cost)
 
+        if should_stop(cost_history):
+            break
+
         # Print the current state
         print_state(i, intercept, slope, cost)
 
@@ -61,5 +64,5 @@ y = data.iloc[:, 1]
 slope = slope * y.std() / x.std()
 intercept = y.mean() - slope * x.mean()
 
-# plot_regression_line(x, y, intercept, slope)
+# plot_regression_line(x, y, intercept, slope)s
 plot_cost_history(cost_history)

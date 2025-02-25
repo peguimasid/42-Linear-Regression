@@ -22,3 +22,9 @@ def plot_regression_line(x, y, intercept, slope):
     plt.ylabel("y")
     plt.title(f"Linear Regression (intercept: {intercept:.2f}, slope: {slope:.2f})")
     plt.show()
+
+
+def should_stop(cost_history):
+    if len(cost_history) < 2:
+        return False
+    return round(cost_history[-2], 7) == round(cost_history[-1], 7)

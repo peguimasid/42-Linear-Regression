@@ -1,4 +1,11 @@
 import json
+from utils import plot_point_on_regression_line
+import pandas as pd
+
+data = pd.read_csv("data.csv")
+
+x = data.iloc[:, 0]
+y = data.iloc[:, 1]
 
 
 def read_thetas():
@@ -16,6 +23,7 @@ def main():
         intercept, slope = read_thetas()
         price = intercept + (slope * mileage)
         print("Estimated price: ", price)
+        plot_point_on_regression_line(x, y, intercept, slope, mileage, price)
     except ValueError:
         print("Invalid input. Please enter a numeric value for mileage.")
     except Exception as e:

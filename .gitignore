@@ -1,3 +1,4 @@
 .vscode
 venv
+thetas.json
 __pycache__/

@@ -1,4 +1,5 @@
 import pandas as pd
+import json
 from utils import plot_cost_history, plot_regression_line, print_state, should_stop
 
 data = pd.read_csv("data.csv")
@@ -64,3 +65,8 @@ intercept = y.mean() - slope * x.mean()
 
 plot_regression_line(x, y, intercept, slope)
 plot_cost_history(cost_history)
+
+thetas = {"intercept": intercept, "slope": slope}
+
+with open("thetas.json", "w") as f:
+    json.dump(thetas, f)

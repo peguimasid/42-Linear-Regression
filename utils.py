@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import json
 
 
 def print_state(iteration, intercept, slope, cost):
@@ -31,3 +32,10 @@ def should_stop(cost_history):
     if len(cost_history) < 2:
         return False
     return round(cost_history[-2], 7) == round(cost_history[-1], 7)
+
+
+def store_thetas(intercept, slope):
+    thetas = {"intercept": intercept, "slope": slope}
+
+    with open("thetas.json", "w") as f:
+        json.dump(thetas, f)

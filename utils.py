@@ -28,7 +28,7 @@ def plot_regression_line(x, y, intercept, slope):
 def plot_point_on_regression_line(x, y, intercept, slope, mileage, price):
     plt.scatter(x, y)
     plt.plot(x, intercept + slope * x, color="red")
-    plt.scatter(mileage, price, color="blue", zorder=5)
+    plt.scatter(mileage, price, color="lime", zorder=5)
     plt.xlabel("x")
     plt.ylabel("y")
     plt.title(

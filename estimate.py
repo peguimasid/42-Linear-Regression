@@ -10,6 +10,17 @@ def read_thetas():
         return 0, 0
 
 
-intercept, slope = read_thetas()
+def main():
+    try:
+        mileage = float(input("Enter mileage: "))
+        intercept, slope = read_thetas()
+        price = intercept + (slope * mileage)
+        print("Estimated price: ", price)
+    except ValueError:
+        print("Invalid input. Please enter a numeric value for mileage.")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
 
-print(intercept, slope)
+
+if __name__ == "__main__":
+    main()

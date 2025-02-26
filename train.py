@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 import pandas as pd
 from utils import plot_cost_history, plot_regression_line, print_state, should_stop
 

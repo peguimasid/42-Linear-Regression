@@ -8,14 +8,6 @@ def z_score(values):
 
 
 def read_data(file):
-    """Reads the values from a CSV file and returns a list of data values.
-
-    Args:
-      file (str): The path to the CSV file.
-
-    Returns:
-      list: A list of data values.
-    """
     try:
         with open(file, mode="r", newline="") as csvfile:
             csvreader = csv.reader(csvfile)

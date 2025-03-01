@@ -25,6 +25,9 @@ data = read_data("data.csv")
 x = [row[0] for row in data]
 y = [row[1] for row in data]
 
+mean_x = sum(x) / len(x)
+mean_y = sum(y) / len(y)
+
 # Start params
 m = len(data)
 intercept = 0

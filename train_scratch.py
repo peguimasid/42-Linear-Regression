@@ -24,3 +24,10 @@ data = read_data("data.csv")
 
 x = [row[0] for row in data]
 y = [row[1] for row in data]
+
+# Start params
+m = len(data)
+intercept = 0
+slope = 0
+learning_rate = 0.01
+iterations = 1000

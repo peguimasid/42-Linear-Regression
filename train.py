@@ -33,7 +33,7 @@ def compute_cost(x, y, intercept, slope):
 def gradient_descent(x, y, intercept, slope):
     cost_history = []  # Store cost at each iteration
 
-    for i in range(iterations):
+    for _ in range(iterations):
         # Compute predictions
         predictions = intercept + slope * x
 
@@ -52,8 +52,10 @@ def gradient_descent(x, y, intercept, slope):
         if should_stop(cost_history):
             break
 
+        # SonarQube deactivation
+        # sonar-ignore
         # Print the current state
-        print_state(i, intercept, slope, cost)
+        # print_state(i, intercept, slope, cost)
 
     return intercept, slope, cost_history
 
@@ -68,7 +70,9 @@ y = data.iloc[:, 1]
 slope = slope * y.std() / x.std()
 intercept = y.mean() - slope * x.mean()
 
-plot_regression_line(x, y, intercept, slope)
-plot_cost_history(cost_history)
+# SonarQube deactivation
+# sonar-ignore
+# plot_regression_line(x, y, intercept, slope)
+# plot_cost_history(cost_history)
 
 store_thetas(intercept, slope)

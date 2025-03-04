@@ -1,4 +1,4 @@
-from utils import read_data, z_score, plot_cost_history
+from utils import read_data, z_score, should_stop, plot_cost_history, print_state
 
 data = read_data("data.csv")
 
@@ -27,11 +27,9 @@ def compute_cost(x, y, intercept, slope):
 def gradient_descent(x, y, intercept, slope):
     cost_history = []
 
-    for _ in range(iterations):
-        # Compute predictions
+    for i in range(iterations):
         predictions = [intercept + slope * x_val for x_val in x]
 
-        # Compute gradients
         intercept_errors = [
             predicted - actual for predicted, actual in zip(predictions, y)
         ]
@@ -43,18 +41,20 @@ def gradient_descent(x, y, intercept, slope):
         ]
         d_slope = (1 / m) * sum(slope_errors)
 
-        # Update parameters
         intercept -= learning_rate * d_intercept
         slope -= learning_rate * d_slope
 
-        # Store the cost (optional, for monitoring)
         cost = compute_cost(x, y, intercept, slope)
         cost_history.append(cost)
+
+        if should_stop(cost_history):
+            break
+
+        print_state(i, intercept, slope, cost)
 
     return intercept, slope, cost_history
 
 
 intercept, slope, cost_history = gradient_descent(x, y, intercept, slope)
-
 
 plot_cost_history(cost_history)

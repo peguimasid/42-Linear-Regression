@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import json
 import csv
+import numpy as np
 
 
 def print_state(iteration, intercept, slope, cost):
@@ -18,6 +19,8 @@ def plot_cost_history(cost_history):
 
 
 def plot_regression_line(x, y, intercept, slope):
+    x = np.array(x)
+    y = np.array(y)
     plt.scatter(x, y)
     plt.plot(x, intercept + slope * x, color="red")
     plt.xlabel("x")

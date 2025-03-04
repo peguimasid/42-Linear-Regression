@@ -22,8 +22,3 @@ def compute_cost(x, y, intercept, slope):
     errors = [(predicted - actual) ** 2 for predicted, actual in zip(predictions, y)]
     cost = (1 / (2 * m)) * sum(errors)
     return cost
-
-
-print(compute_cost(x, y, 0, 0))  # 0.4791666666666668
-print(compute_cost(x, y, 1, 1))  # 2.278800278257564
-print(compute_cost(x, y, 3, -0.2))  # 4.834239944348486

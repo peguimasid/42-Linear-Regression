@@ -22,3 +22,13 @@ def compute_cost(x, y, intercept, slope):
     errors = [(predicted - actual) ** 2 for predicted, actual in zip(predictions, y)]
     cost = (1 / (2 * m)) * sum(errors)
     return cost
+
+
+def gradient_descent(x, y, intercept, slope):
+    cost_history = []
+    return intercept, slope, cost_history
+
+
+intercept, slope, cost_history = gradient_descent(x, y, intercept, slope)
+
+print(intercept, slope)

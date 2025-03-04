@@ -1,4 +1,12 @@
-from utils import read_data, z_score, should_stop, plot_cost_history, print_state
+from utils import (
+    read_data,
+    z_score,
+    should_stop,
+    plot_cost_history,
+    plot_regression_line,
+    print_state,
+    store_thetas,
+)
 
 data = read_data("data.csv")
 
@@ -64,3 +72,17 @@ intercept, slope, cost_history = gradient_descent(x, y, intercept, slope)
 # Revert x and y to original scale
 x = [row[0] for row in data]
 y = [row[1] for row in data]
+
+# Adjust intercept and slope to original scale
+x_mean = sum(x) / len(x)
+y_mean = sum(y) / len(y)
+x_std = (sum([(xi - x_mean) ** 2 for xi in x]) / len(x)) ** 0.5
+y_std = (sum([(yi - y_mean) ** 2 for yi in y]) / len(y)) ** 0.5
+
+slope = slope * y_std / x_std
+intercept = y_mean - slope * x_mean
+
+plot_regression_line(x, y, intercept, slope)
+plot_cost_history(cost_history)
+
+store_thetas(intercept, slope)

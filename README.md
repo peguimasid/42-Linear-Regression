@@ -1,8 +1,8 @@
 <h1 align="center">Welcome to Linear Regression 👋</h1>
 <p align="center">📈 An introduction to machine learning.</p>
 
-- **Status**: WIP
-- **Result**: 0%
+- **Status**: Finished
+- **Result**: 110%
 
 ## Install
 
